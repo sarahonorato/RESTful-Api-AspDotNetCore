@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "oshnS4pUQyB6Y3L7gv3d0f3K7eoezQ12viMtWo9KSW/13yp8uxkqvhUFecThfzv2SmiSqLwYfzt//lPKgKmq/g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\sarah\\OneDrive\\Documentos\\GitHub\\RESTful-Api-AspDotNetCore\\BasicAPI\\BasicAPI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sarah\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning\\5.0.0\\microsoft.aspnetcore.mvc.versioning.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
