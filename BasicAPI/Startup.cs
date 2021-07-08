@@ -29,7 +29,10 @@ namespace BasicAPI
         {
             services.AddControllers();
 
-            services.AddMvcCore(options => { options.Filters.Add<JsonExceptionFilter>(); });
+            services.AddMvcCore(options => { 
+                options.Filters.Add<JsonExceptionFilter>();
+                options.Filters.Add<RequireHttpsOrCloseAttribute>();
+            });
 
             services.AddApiVersioning(options => {
                 options.DefaultApiVersion = new ApiVersion(1, 0);
@@ -37,6 +40,10 @@ namespace BasicAPI
                 options.AssumeDefaultVersionWhenUnspecified = true;
                 options.ReportApiVersions = true;
                 options.ApiVersionSelector = new CurrentImplementationApiVersionSelector(options);
+            });
+
+            services.AddCors(options => {
+                options.AddPolicy("AllowMyApp", policy => policy.AllowAnyOrigin());
             });
         }
 
@@ -47,8 +54,11 @@ namespace BasicAPI
             {
                 app.UseDeveloperExceptionPage();
             }
+            else {
+                app.UseHsts();
+            }
 
-            app.UseHttpsRedirection();
+            app.UseCors("AllowMyApp");
 
             app.UseRouting();
 
